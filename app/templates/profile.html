@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">{{ user.username }}'s Profile</h3>
+                <div>
+                    <a href="{{ url_for('main.update', user_id=user.id) }}" class="btn btn-warning">Edit Profile</a>
+                    <a href="{{ url_for('main.users') }}" class="btn btn-secondary">Back to Users</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Personal Information</h5>
+                        <table class="table">
+                            <tr>
+                                <th>Username:</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>First Name:</th>
+                                <td>{{ user.first_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last Name:</th>
+                                <td>{{ user.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <th>Age:</th>
+                                <td>{{ user.age if user.age else 'Not specified' }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Bio</h5>
+                        <p class="border p-3 rounded bg-light">
+                            {{ user.bio if user.bio else 'No bio provided.' }}
+                        </p>
+                        
+                        <h5 class="mt-4">Account Details</h5>
+                        <table class="table">
+                            <tr>
+                                <th>User ID:</th>
+                                <td>{{ user.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Registered:</th>
+                                <td>{{ user.created_at.strftime('%B %d, %Y at %H:%M') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Last Updated:</th>
+                                <td>{{ user.updated_at.strftime('%B %d, %Y at %H:%M') }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

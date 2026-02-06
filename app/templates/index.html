@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="display-4 mb-4">Welcome to User Management System</h1>
+        <p class="lead mb-4">
+            A simple Flask application to register, view, and manage user profiles.
+        </p>
+        
+        <div class="row mt-5">
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Register</h5>
+                        <p class="card-text">Create a new user account with your details.</p>
+                        <a href="{{ url_for('main.register') }}" class="btn btn-primary">Register Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">View Users</h5>
+                        <p class="card-text">Browse all registered users in the system.</p>
+                        <a href="{{ url_for('main.users') }}" class="btn btn-success">View All</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Profiles</h5>
+                        <p class="card-text">Update or delete existing user profiles.</p>
+                        <a href="{{ url_for('main.users') }}" class="btn btn-info">Manage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
